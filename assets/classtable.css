@@ -1,0 +1,23 @@
+
+body{
+  background-image: url("/img/3.png");
+
+}
+table {
+  font-family: "Fira Sans", sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: white;
+  font-size: 1.3em;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  background-color: white;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

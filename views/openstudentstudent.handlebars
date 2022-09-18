@@ -1,0 +1,110 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/assets/to.css">
+ {{!-- <link rel="stylesheet" type="text/css" href="card.css">
+ --}}
+     <link rel="stylesheet" href="/assets/flipcard.css">
+
+
+   
+    <link rel="stylesheet" href="/assets/tab1.css">
+
+
+
+ 
+
+</head>
+<body>
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+ <div class="header">
+
+<img src="/img/logowhite.png" class="logo" height="60px" width="80px"></div>
+
+
+     
+    <input type="checkbox" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner top"></div>
+        <div class="spinner middle"></div>
+        <div class="spinner bottom"></div>
+    </label>
+    <div id="sidebarMenu">
+        <ul class="menu">
+<a href="/joinclass"> <li><i class="fa fa-plus-square fa-2x"></i>&nbsp; <span style="font-size:18px;">Join class</span></a> </li>
+<a href="/showstudentclass/{{class2.student}}"> <li><i class="fa fa-folder-open fa-2x"></i>&nbsp;  <span style="font-size:18px;">All classes</span></a></li>
+{{!-- <a href="#"> <li><i class="fa fa-home fa-2x"></i>&nbsp;  <span style="font-size:18px;"> Tasks</span></a></li> --}}
+<a href="/logout1"> <li><i class="fa fa-home fa-2x"></i>&nbsp;  <span style="font-size:18px;">Logout</span></a> </li>
+         </ul>
+    </div>
+    {{!-- <div class="main-container">
+  <div class="heading">
+    <h1 class="heading__title">{{classs.classname}}</h1>
+    <p class="heading__credits"><a class="heading__link" target="_blank" href="">{{classs.course}}</a></p>
+  </div>
+  <div class="cards">
+    <div class="card card-1">
+         <a class="btn btn-success" href="/edittask/{{tasks.id}}">Edit</a>
+      <div class="card__icon"><i class="fas fa-bolt">Section: {{classs.section}}</i></div>
+      <p class="card__exit"><i class="fas fa-times">subject:{{tasks.subject}}<br>description:{{tasks.description}}
+      <br>title:{{tasks.title}} <br>time:{{tasks.tasktime}} <br>date:{{tasks.taskdate}}
+      </i></p>
+       <h2 class="card__title">Code: {{classs.code}}<br>Teacher: {{classs.teacher}}<br><a href="/openclass/{{classs.id}}">tasks:{{tasks.file}}</a></h2>
+      <p class="card__apply">
+
+        <a class="card__link" href="/showteacher">All Classes <i class="fas fa-arrow-right"></i></a>
+      <a class="card__link"  href="/createtask/{{classs.id}}"> Add Task <i class="fas fa-arrow-right"></i></a>
+      <a class="card__link" href="/showtask"> show Task <i class="fas fa-arrow-right"></i></a>
+    </p>
+    </div>
+  </div>
+ </div>
+
+ --}}
+
+
+
+<div class="wrapper">
+   
+    <input type="radio" name="slider"  id="home">
+    <input type="radio" name="slider" checked id="blog">
+    <input type="radio" name="slider" id="code">
+    <input type="radio" name="slider" id="help">
+    <input type="radio" name="slider" id="about">
+    <nav>
+      <label for="home" class="home"><a class="anchor" href="/viewstudentclass/{{classs.id}}"> Class</a></label>
+      <label for="blog"  class="blog"><a class="anchor" href="/openstudentstudent/{{classs.id}}"> Student</a></label>
+      <label for="code" class="code"><a class="anchor" href="/openstudentassignment/{{classs.id}}"> Assignment</a></label>
+      <label for="help" class="help"><a class="anchor" href="/openstudentmaterial/{{classs.id}}"> Material</a></label>
+      <label for="about" class="about"><a class="anchor" href="/openstudentgrade/{{classs.id}}"> Grades</a></label>
+      <div class="slider"></div>
+    </nav>
+ 
+  </div>
+ {{#each joinc}}
+<div class="container">
+  <div class="white-box">
+    
+    <div class="featured"><strong>Student Name:</strong>{{this.student}}<br>
+    <strong>Email:</strong>{{this.semail}}
+    </div>
+ 
+  </div>
+</div>
+ 
+ {{/each}}
+
+</body>
+</html>

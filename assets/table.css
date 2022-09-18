@@ -1,0 +1,44 @@
+body{
+  background-image: url("/img/3.png");
+
+}
+
+.container {
+    position: relative;
+    width: 30%;
+   
+    /* background-color: #fff; */
+    min-height: 100vh;
+    overflow: hidden;
+
+  }
+  .container a{
+    margin-top: 10px;
+  }
+
+.table {
+    font-family: "Fira Sans", sans-serif;
+    border-collapse: collapse;
+    background-color: #fff;
+    align-content: center;
+    /* margin-top: 30px; */
+  }
+  
+  .table th {
+    text-align: left;
+    border-top: 2px solid #115da8;
+    border-bottom: 2px solid #115da8;
+  }
+  
+  .table td,
+  .search-input {
+    font-size: 0.5em;
+    padding: 0.4em 0.2em;
+  }
+  
+  .search-input {
+    border: none;
+    outline: none;
+    font-family: "Fira Sans", sans-serif;
+  }
+  

@@ -1,0 +1,71 @@
+@import "https://fonts.googleapis.com/css?family=Raleway";
+* { box-sizing: border-box; }
+body { 
+  margin: 0; 
+  padding: 0; 
+
+}
+h1{ margin: 0; }
+
+
+/* #contact:hover { background: #666; } */
+#contact:active { background: #444; }
+
+#contactForm { 
+  display: none;
+
+  border: 6px solid #118aed; 
+  padding: 2em;
+  width: 400px;
+  text-align: center;
+  background: #fff;
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%)
+  
+}
+
+input, textarea { 
+  margin: .8em auto;
+  font-family: inherit; 
+  text-transform: inherit; 
+  font-size: inherit;
+  
+  display: block; 
+  width: 280px; 
+  padding: .4em;
+}
+textarea { height: 80px; resize: none; }
+
+.formBtn { 
+  width: 140px;
+  display: inline-block;
+  
+  background: #118aed;
+  color: #fff;
+  font-weight: 100;
+  font-size: 1.2em;
+  border: none;
+  height: 30px;
+}
+
+.btnn {
+  font-size: 16px;
+  background-color: #115da8;
+  color: #fff;
+  padding: 10px 22px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 11px;
+  transition: .3s;
+}
+
+.btnn:hover {
+  background-color: #ffffff;
+  text-decoration: none;
+  color: #115da8;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+}
+

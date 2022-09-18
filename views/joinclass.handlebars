@@ -1,0 +1,115 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+ <link rel="stylesheet" type="text/css" href="/assets/to.css">
+  <link rel="stylesheet" type="text/css" href="/assets/btn.css">
+  <link rel="stylesheet" type="text/css" href="/assets/flipcard.css">
+    <link rel="stylesheet" type="text/css" href="/assets/createclass3.css">
+
+
+ <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+#myDIV {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+ 
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+  <div class="header">
+
+<img src="/img/logowhite.png" class="logo" height="60px" width="80px"></div>
+
+
+     
+    <input type="checkbox" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner top"></div>
+        <div class="spinner middle"></div>
+        <div class="spinner bottom"></div>
+    </label>
+    <div id="sidebarMenu">
+        <ul class="menu">
+<a href="/homes"> <li><i class="fa fa-home fa-2x"></i>&nbsp;  <span style="font-size:18px;">Home</span></a></li>
+   
+ <a href="/joinclass"> <li><i class="fa fa-plus-square fa-2x"></i>&nbsp; <span style="font-size:18px;">Join class</span></a> </li>
+<a href="/showstudentclass/{{classs.student}}"> <li><i class="fa fa-folder-open fa-2x"></i>&nbsp;  <span style="font-size:18px;">All classes</span></a></li>
+{{!-- <a href="#"> <li><i class="fa fa-home fa-2x"></i>&nbsp;  <span style="font-size:18px;"> Tasks</span></a></li> --}}
+<a href="/logout1"> <li><i class="fa fa-home fa-2x"></i>&nbsp;  <span style="font-size:18px;">Logout</span></a> </li>
+  
+       
+       
+       
+        </ul>
+    </div>
+    <div class="main">
+    
+<div class="form-style-5">
+        <form method="post" action="/classcode">
+        <fieldset>
+<legend><span class="number">1</span>Join Class</legend>
+
+         <input type="text" name="clascode" required placeholder="enter code"/>
+         <input type="text" hidden name="sclassname"value="{{class1.classname}}"/>
+                 
+  </fieldset>
+            <div class="type-1">
+              <div>
+                 <button type="submit"onclick="myFunction()" href="" class="btn btn-1">
+                 <span class="txt">Join Class</span>
+                 <span class="round"><i class="fa fa-chevron-right"></i></span>
+                  </button>
+              </div>
+
+            </div>
+               
+            
+             
+                 </form> 
+                 </div>
+                 <form method="post" action="/addjoinclass">
+                          <input type="text" hidden required="required" name="sclassname"value="{{class1.classname}}"/>
+                          <input type="text" hidden name="ssection"value="{{class1.section}}"/>
+                          <input type="text" hidden name="scourse"value="{{class1.course}}"/>
+                          <input type="text" hidden name="steacher"value="{{class1.teacher}}"/>
+
+  {{#each active1}}
+    
+
+                     <input type="text" hidden name="username"value="{{this.susername}}"/>
+                     <input type="text" hidden name="email"value="{{this.semail}}"/>
+
+                {{/each}}
+   <div class="type-1">
+     <div id="myDIV">
+              <div>
+                 <button type="submit" href="" class="btn btn-1">
+                 <span class="txt">Are you sure you want to join {{class1.classname}}</span>
+                 <span class="round"><i class="fa fa-chevron-right"></i></span>
+                  </button>
+              </div>
+
+            </div>
+               </div>      </form>
+<script>
+  function myFunction() {
+  var x = document.getElementById("myDIV");
+      x.style.display = "none";
+
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } 
+}
+  </script>
+
+
+</body>
+</html>

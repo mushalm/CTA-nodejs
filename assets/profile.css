@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+}
+body{
+ 
+}
+#contact:active { background: rgb(255, 255, 255); }
+
+#contactForm { 
+  display: none;
+
+  border: #fff;
+  padding: 2em;
+  width: 50px;
+  text-align: justify;
+  background-color: #fff;
+  position: fixed;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%)
+  
+}
+
+.formBtn { 
+  width: 140px;
+  display: inline-block;
+  
+  
+  color: #fff;
+  font-weight: 100;
+  font-size: 1.2em;
+  border: none;
+  height: 30px;
+}
+.card {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    padding: 30px;
+    display: flex;
+    background-color: #fff;
+     position: absolute;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    z-index: 10;
+    margin-top: -168px;
+    margin-left: -230px;
+    height: 250px;
+}
+
+.card .text{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin:-93px;
+}
+
+.card .text img{
+    height: 140px;
+    border-radius: 50%;
+  margin-bottom:10px;
+}
+
+.card .text h3{
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.card .text p:nth-of-type(1){
+    color: rgb(35, 182, 219);
+    font-size: 15px;
+    margin-top: -5px;
+}
+
+.card .text p:nth-of-type(2){
+    margin: 10px;
+    width: 90%;
+    text-align: center;
+}
+
+.card .links{
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card .links i{
+    color: rgb(35, 182, 219);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.card .links i:hover{
+    color:rgb(29, 157, 189) ;
+}

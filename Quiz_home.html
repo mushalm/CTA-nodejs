@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel = "icon" href = "https://cdn.iconscout.com/icon/premium/png-512-thumb/quiz-18-831952.png"  type = "image/x-icon"> 
+	<link rel="stylesheet" href="/assets/quiz.css">
+
+</head>
+<body>
+	<div class="home-box custome-box ">
+		<h1 align="center">Welcome To <br/> Comsats Task Assigner!</h1>
+		<br/>
+		<h2><b>Instructions:</b></h2>
+		<p>Total number of questions: <span class="total-question">10</span></p>
+		
+		<br/>
+		<button type="button" class="btn" onclick="startQuiz()">Start Quiz</button>
+	</div>
+
+	<div class="quiz-box custome-box hide">
+		<div class="question-no">
+			
+		</div>
+		<div class="question-text">
+			
+		</div>
+		<div class="opt-container">
+			
+		</div>
+		<div class="next-question-btn">
+			<button type="button" class="btn" onclick=""><a href="/Quiz_home" style="color: white;">Back</a></button>
+			<button type="button" class="btn" onclick="next()">Next</button>
+		</div>
+		<div class="ans-indicator">
+			
+			
+		</div>
+		
+	</div>
+
+	<div class="result-box custome-box hide">
+		<h1>Quiz Result</h1>
+		<table>
+			<tr>
+				<td>Total Question</td>
+				<td><span class="tot-question"></span></td>
+			</tr>
+			<tr>
+				<td>Attempt</td>
+				<td><span class="tot-attempt"></span></td>
+			</tr>
+			<tr>
+				<td>Correct</td>
+				<td><span class="tot-correct"></span></td>
+			</tr>
+			<tr>
+				<td>Wrong</td>
+				<td><span class="tot-wrong"></span></td>
+			</tr>
+			<tr>
+				<td>Percentage</td>
+				<td><span class="tot-percentage"></span></td>
+			</tr>
+			<tr>
+				<td>Your Total Score</td>
+				<td><span class="tot-score"></span></td>
+			</tr>
+
+		</table>
+		<button type="button" class="btn" onclick="tryAgainQuiz()">Try Again</button>
+		<button type="button" class="btn" onclick="goToHome()">Go To Home</button>
+	</div>
+	
+
+	<script type="text/javascript" >
+
+//Array of objects(qustions)
+
+
+const quiz =[
+{
+	q:'Is HTML a programming language?',
+	options:['Yes','No'],
+	answer:1
+},
+{
+	q:'What is one of the reasons Java is different to Javascript?',
+	options:['Java is compiled before it runs and isn\'t limited to being on a web browser.','Java is just short for javascript','Javascript is barely used anymore since Java came out.'],
+	answer:0
+},
+{
+	q:'What is the newest version of HTML being developed?',
+	options:['HTML4','HTML6','HTML5','There is only one type of HTML'],
+	answer:2
+},
+{
+	q:'What does CSS stand for?',
+	options:['Complete Sound Sheet','Cascading Style Sheet','Cscading Style Syntax'],
+	answer:1
+},
+{
+	q:'Non animated gifs are usually lower in file size, why don\'t people use them for photos',
+	options:["Because it hasn't caught on.",'You need to pay for a lisencse to use them.','They are distracting and decrease Usability.','None of the above'],
+	answer:2
+},
+{
+	q:"What happens to a lot of images saved as jpgs when you put them online.",
+	options:['Stretching',"They'll turn blur",'They are too big in file size.','Lower quality and artifacts.'],
+	answer:3
+},
+{
+	q:"Which is the correct CSS syntax?",
+	options:["Body {color: black}","{body;color:black}","{body:color=black(body}","body:color=black"],
+	answer:0
+},
+{
+	q:"What does a compiler do?   ",
+	options:["Makes code start","Tests to see whether the program runs fine","Converts the coding into another computer language, usually to make an executable program."],
+	answer:2
+},
+{
+	q:"What is an advantage of having external CSS?",
+	options:["It is faster","You can edit one file to edit the base of every page which uses it.","It makes no difference"],
+	answer:1
+},
+{
+	q:"What does the acronym WWW stand for?",
+	options:["Wide Wacky Walter","Web Wide Wave","Wide Wall Web","Web World Wall","World Wide Web"],
+	answer:4
+},
+{
+	q:"HTML uses______?",
+	options:["User defined tags","Pre-specified tags","Fixed tags defined by the language","Tags only for linking"],
+	answer:2
+},
+{
+	q:"The year in which HTML was first proposed _______?",
+	options:["1993","2001","1951","1890"],
+	answer:0
+}
+]
+
+
+
+	</script>
+	<script type="text/javascript" >
+const questionNumber = document.querySelector(".question-no");
+const questionText = document.querySelector(".question-text");
+const optionsContainer = document.querySelector(".opt-container");
+const answerIndicatorContainer = document.querySelector(".ans-indicator");
+const homeBox = document.querySelector(".home-box");
+const quizBox = document.querySelector(".quiz-box");
+const resultBox = document.querySelector(".result-box");
+const name = document.querySelector(".name");
+
+let questionCounter=0;
+let currentQuestion;
+let availableQuestions = [];
+let availableOptions = [];
+let correctAnswers = 0;
+let attempt = 0;
+
+//Push the quetions into availableQuestions array
+function setAvailableQuestions(){
+	const totalQuestions=quiz.length;
+	for(let i=0;i<totalQuestions; i++){
+		availableQuestions.push(quiz[i])
+	}
+}
+
+//set question number and question and options
+function getNewQuestion(){
+ 	//set question number
+ 	questionNumber.innerHTML="Question "+(questionCounter+1)+" of 10";
+
+ 	//set question text
+ 	// fetch a random question
+ 	const questionIndex = availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
+ 	currentQuestion=questionIndex;
+ 	questionText.innerHTML=currentQuestion.q;
+
+ 	//get the position of 'questionIndex' from the avaible questions array;
+ 	const index1=availableQuestions.indexOf(questionIndex);
+ 	//remove the 'questionIndex' from the avaibaleQuestion array,so the question won't repeate again
+ 	availableQuestions.splice(index1,1);
+ 	
+
+ 	//set Options
+ 	//fetch the length of the options
+ 	const optionLen= currentQuestion.options.length;
+ 	//push options in availableOptions array
+ 	for(let i=0; i<optionLen; i++){
+ 		availableOptions.push(i)
+ 	}
+
+ 	optionsContainer.innerHTML='';
+ 	let animationDelay = 0.15;
+	//create options in HTML
+	for(let i=0;i<optionLen; i++){
+		//random option
+		const optionIndex = availableOptions[Math.floor(Math.random() * availableOptions.length)];
+		//get the position of 'OptionIndex' from the availableOptions
+		const index2= availableOptions.indexOf(optionIndex);
+		//removes the 'optionIndex' from the availableOptions, so that option does not repeat
+		availableOptions.splice(index2,1);
+
+
+
+		const option = document.createElement("div");
+		option.innerHTML=currentQuestion.options[optionIndex];
+		option.id=optionIndex;
+		option.style.animationDelay = animationDelay+'s';
+		animationDelay=animationDelay+0.15;
+		option.className="option";
+		optionsContainer.appendChild(option);
+		option.setAttribute("onclick","getResult(this)");
+	}
+ 	
+ 	questionCounter++
+}
+
+//fetch the result of current attempt question
+function getResult(element){
+	const id = parseInt(element.id);
+	//fetch the answer by comparing the id of clicked option
+	if (id === currentQuestion.answer){
+		//set the green color to the correct option
+		element.classList.add("correct");
+		// add the indicator correct mark
+		updateAnswerIndicator("correct");
+		correctAnswers++;
+		console.log("correct:"+correctAnswers)
+	}
+	else{
+		//set the red color to the wrong option
+		element.classList.add("wrong");
+		// add the indicator wrong mark
+		updateAnswerIndicator("wrong");
+
+		// if the answer is incorrect, show the correct option
+		const optionLen = optionsContainer.children.length;
+		for(let i=0; i<optionLen; i++){
+			if(parseInt(optionsContainer.children[i].id) === currentQuestion.answer){
+				optionsContainer.children[i].classList.add("correct");
+			}
+		}
+	}
+	attempt++;
+	unclickableOptions();
+}
+
+// Restrict the user to select an option, when once selected
+function unclickableOptions() {
+	// body...
+	const optionLen = optionsContainer.children.length;
+	for(let i=0;i<optionLen; i++){
+		optionsContainer.children[i].classList.add("already-answered");
+	}
+}
+
+
+function answerIndicator(){
+	answerIndicatorContainer.innerHTML = '';
+	const totalQuestions = quiz.length;
+	for(let i=0; i<10; i++){
+		const indicator = document.createElement("div");
+		answerIndicatorContainer.appendChild(indicator);
+	}
+}
+function updateAnswerIndicator(markType){
+	answerIndicatorContainer.children[questionCounter-1].classList.add(markType)
+}
+
+
+function next(){
+	if(questionCounter===10){
+		console.log("Quiz Over!");
+		quizOver();
+	}
+	else{
+		getNewQuestion();
+	}
+}
+
+
+function quizOver(){
+	// hide quiz box
+	quizBox.classList.add("hide");
+	//show result box
+	resultBox.classList.remove("hide");
+	quizResult();
+}
+
+function quizResult(){
+	
+	resultBox.querySelector(".tot-question").innerHTML = 10;
+	resultBox.querySelector(".tot-attempt").innerHTML =attempt;
+	resultBox.querySelector(".tot-correct").innerHTML = correctAnswers;
+	resultBox.querySelector(".tot-wrong").innerHTML = attempt- correctAnswers;
+	const percentage =  (correctAnswers/10)*100;
+	resultBox.querySelector(".tot-percentage").innerHTML = percentage.toFixed(2) + "%";
+	resultBox.querySelector(".tot-score").innerHTML = correctAnswers+" / 10";
+}
+
+
+
+function startQuiz(){
+	// hide home box
+	homeBox.classList.add("hide");
+	// shows quiz box
+	quizBox.classList.remove("hide" );
+
+	//First we will set all questions in avaibleQuestins array
+	setAvailableQuestions();
+	//Secondly we will call getNewQuestion() function
+	getNewQuestion();
+	// to create answer indicators
+	answerIndicator();
+}
+
+function resetQuiz(){
+	questionCounter=0;
+	correctAnswers = 0;
+	attempt = 0;
+}
+function tryAgainQuiz(){
+	// hide the result box
+	resultBox.classList.add("hide");
+	// removes the quiz box
+	quizBox.classList.remove("hide");
+	resetQuiz();
+	startQuiz();
+
+}
+function goToHome(){
+	// hide result box
+	resultBox.classList.add("hide");
+	// removes the quiz box
+	homeBox.classList.remove("hide");
+	resetQuiz();
+}	
+function rEload()
+{
+	
+	quizBox.classList.add("hide");
+
+	homeBox.classList.remove("hide");
+	resetQuiz();
+}
+
+
+	</script>
+	<footer class="cc">&copy; Copyright 2022, belongs to CTA team</footer>
+</body>
+</html>

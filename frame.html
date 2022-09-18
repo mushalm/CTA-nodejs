@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>Example - Frames</title>
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/st.css">
+
+</head>
+<body>
+    <nav>
+        <div class="menu">
+        <div class="logo">
+        
+        <a href="#">Assignment</a>
+        <a href="#"><select>
+        <ul>
+                        <li><option value="Assign">Assign</option></li>
+                        <li><option value="schedule">schedule</option></li>
+                        <li><option value="save draft">save draft</option></li>
+                       <li> <option value="discard draft">discard draft</option></li>
+                        
+                        
+                        
+                    </ul>
+            
+          </select></right>
+        </div>
+        
+               
+               
+        </nav>
+     
+        <div class="split left">
+            <div class="centered">
+                <textarea rows="5" cols="100" name="comment" form="usrform">  
+                    Title</textarea><BR><BR><BR>
+                       
+                    <textarea rows="9" cols="100" name="comment" form="usrform">  
+                    Instruction (optional) </textarea><BR>
+                    
+                    <left><p>upload a file:</p>
+                    
+                    <form action="#">
+                      <input type="file" id="myFile" name="filename">
+                    <a href= "https://docs.google.com/document/d/1OQx5q0Gn_aL_wbddinasc9pl7-jpk98qsKATfQc9AA8/edit">Create file</a>
+                    
+                    </form></left> 
+            </div>
+            
+          </div>
+          <div class="split right">
+            <div class="centered">
+                <div class="select-box">
+                    <h2>FOR</h2>
+                      <select>
+                        <option value="FA19-BSSE-B">FA19-BSSE-B</option>
+                        <option value="FA19-BSSE-A">FA19-BSSE-A</option>
+                        <option value="FA18-BSSE-B">FA18-BSSE-B</option>
+                        <option value="FA18-BSSE-A">FA18-BSSE-A</option>
+                      </select></div><br><br>
+                    <div class="select-box">
+                    <select>
+                        <option value="All students ">All students </option>
+                        
+                      </select></div>
+                    <div class="select-box">
+                    <h2>POINTS</h2>
+                      <select>
+                        <option value=" 100 "> 100 </option>
+                        <option value="50">50</option>
+                        <option value="30">30</option>
+                        <option value="20">20</option>
+                      </select></div>
+                    <div class="select-box">
+                    <h2>DUE</h2>
+                      <select>
+                        <option value="date & time">date & time</option>
+                        <option value="saab">Saab</option>
+                        
+                      </select></div>
+                    <div class="select-box">
+                    <h2>TOPIC</h2>
+                      <select>
+                        <option value="No topic">No topic</option>
+                        <option value="Create topic">Create topic</option>
+                        
+                      </select></div>
+                      
+            </div>
+          </div>
+          <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script>
+  tinymce.init({
+    selector: 'textarea#editor',
+    menubar: false
+  });
+</script>
+          <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+<!-- <frameset rows="100,*">
+<frame name="top" src="/top">
+<frameset cols="75,25">
+<frame name="left" src="/L">
+<frame name="right" src="/R">
+</frameset>
+<noframes>
+<i>error to display to those who cannot see frames</i>
+</noframes>
+</frameset> -->
+</html>

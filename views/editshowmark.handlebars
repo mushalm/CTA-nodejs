@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/createclass2.css">
+
+    <title>Edit Class</title>
+</head>
+<body>
+  <div class="form-style-5">
+<form action="/updateshowmarks/{{grades.id}}"method="POST">
+<fieldset>
+<legend><span class="number">1</span>Update Marks</legend>
+<input type="text" name="title" disabled required="required"value="{{grades.title}}" placeholder=" Title *">
+<input type="text" name="total"required="required" value="{{grades.total}}"placeholder="Total *">
+ <input type="text"name="obtained" required="required"value="{{grades.obtained}}"placeholder="Obtained *">
+  <input type="text"name="sname"disabled value="{{grades.student}}"placeholder="Student *">
+
+ <input type="text" name="classn" value="{{grades.class}}"placeholder="Classname *">
+
+    
+</fieldset>
+
+<input type="submit" value="Update Marks" />
+</form>
+    {{!-- <section>
+  
+        <div class="box">
+          
+          <div class="square" style="--i:0;"></div>
+          <div class="square" style="--i:1;"></div>
+          <div class="square" style="--i:2;"></div>
+          <div class="square" style="--i:3;"></div>
+          <div class="square" style="--i:4;"></div>
+          <div class="square" style="--i:5;"></div>
+          
+         <div class="container"> 
+          <div class="form"> 
+            <h2>Edit Class</h2>
+            <form action="/updateclass/{{classs.id}}"method="POST">
+              <div class="inputBx">
+                <input type="text" name="classname"value="{{classs.classname}}"required="required">
+                <span>Classname</span>
+               
+              </div>
+              <div class="inputBx">
+                  <input type="text"name="course"value="{{classs.course}}" required="required">
+                  <span>Course</span>
+                 
+                </div>
+              <div class="inputBx">
+                  <input type="text"name="section"value="{{classs.section}}" required="required">
+                  <span>Section</span>  
+                </div>
+           
+                <div class="inputBx">
+                  <input type="text"name="code" value="{{classs.code}}"aria-disabled="true">
+                  <span>Code</span>  
+                </div>
+              
+                <button class="button"type="submit" >Update Class </button>
+             
+            </form>
+           
+          </div>
+        </div>
+          
+        </div>
+      </section>
+      
+      <!---JS CDN Link---->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <!--Custom JS File-->
+      <script>
+      function show_hide_password(target){
+          var input = document.getElementById('password-input');
+          if (input.getAttribute('type') == 'password') {
+              target.classList.add('view');
+              input.setAttribute('type', 'text');
+          } else {
+              target.classList.remove('view');
+              input.setAttribute('type', 'password');
+          }
+          return false;
+      }
+      
+      </script> --}}
+</body>
+</html>

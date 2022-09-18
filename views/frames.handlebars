@@ -1,0 +1,272 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <!-- <link rel="stylesheet" href="/assets/textarea.css"> -->
+
+	
+	<link rel="stylesheet" href="assets/textarea1.css" type="text/css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <!-- <nav>
+    
+        <div class="menu">
+      
+    
+   
+          <a href="#">
+       
+      
+    
+          </div>
+           
+           
+    </nav> -->
+    <!-- <nav> 
+        <ul>
+            <li><a href="#">Logout</a></li>
+        </ul> 
+    </nav> -->
+   <!-- <section  class="container">
+    <div class="input-block">
+        <input type="text" name="input-text" id="input-text" required spellcheck="false">
+        <span class="placeholder1">
+          Title
+        </span>
+      </div>
+ </section> -->
+  
+    <!-- <section class="container"> 
+       
+        <div class="tools">
+            <input type="color" id="color" onchange="color(this.value)">
+            <label class="color-pallete" for="color">
+                <i class="fas fa-palette"></i>
+            </label>
+            <button onclick="SmallFont(this)" class="mines size"><i class="fas fa-minus"></i></button>
+            <button onclick="Biggerfont(this)" class="plus size"><i class="fas fa-plus"></i></button>
+            <button onclick="BoldFont(this)" class="bold"><i class="fas fa-bold"></i></button>
+            <button onclick="ItalicFont(this)" class="italic"><i class="fas fa-italic"></i></button>
+            <button onclick="TextLeft(this)" class="left"><i class="fas fa-align-left"></i></button>
+            <button onclick="TextCenter(this)" class="center"><i class="fas fa-align-center"></i></button>
+            <button onclick="TextRight(this)" class="right"><i class="fas fa-align-right"></i></button>
+        </div>
+        <div class="form-control">
+            <textarea spellcheck="false" required="required" name="text" id="text"></textarea>
+            <p class="placeholder"></p>
+        </div>
+
+    </section>  -->
+<form action=""method="post"enctype="multipart/form-data">
+  <div class="container2">
+ 
+
+   <div  class="custom-select"style="width:200px;" >
+    <select id="taskclass"name="taskclass">
+      
+    <option value="0">Select Class</option>
+     {{#each classs}}
+    <option value="{{this.classname}}">{{this.classname}}</option>
+    {{!-- <option value="2">BMW</option> --}}
+      {{/each}}
+     </select>
+  </div>
+
+ <div class="form-question">
+   
+    <div class="input-container">
+      <input id="effective-date" type="date" name="taskdate" minlength="1" maxlength="64" placeholder=" " autocomplete="nope" ></input>
+      <span class="bar"></span>
+    </div>
+  </div>
+  <br>
+  <input type="time" id="appt" name="tasktime" min="09:00" max="18:00" >
+<br><br>
+       <input class="button-64" role="button" type="file" id="myFile" name="file">
+  </div>
+   <div class="wrapper">
+ 
+  <input type="text"id="title" name="title" class="textfield" placeholder="Title">
+  
+
+  <div class="options">
+    <button onClick="transform('bold', null)">
+      <i class="fas fa-bold"></i>
+    </button>
+    <button onClick="transform('italic', null)">
+      <i class="fas fa-italic"></i>
+    </button>
+    <button onClick="transform('strikeThrough', null)">
+      <i class="fas fa-strikethrough"></i>
+    </button>
+    <button onClick="transform('underline', null)">
+      <i class="fas fa-underline"></i>
+    </button>
+    <div class="seperator"></div>
+    <button onClick="transform('justifyLeft', null)">
+      <i class="fas fa-align-left"></i>
+    </button>
+    <button onClick="transform('justifyCenter', null)">
+      <i class="fas fa-align-center"></i>
+    </button>
+    <button onClick="transform('justifyRight', null)">
+      <i class="fas fa-align-right"></i>
+    </button>
+    <div class="seperator"></div>
+    <button onClick="transform('insertOrderedList', null)">
+      <i class="fas fa-list-ol"></i>
+    </button>
+    <button onClick="transform('insertUnorderedList', null)">
+      <i class="fas fa-list-ul"></i>
+    </button>
+    <div class="seperator"></div>
+    <select onChange="transform('fontName', this.value)">
+      <option disabled default>Font</option>
+      <option value="Times New Roman">Times</option>
+      <option value="Arial">Arial</option>
+      <option value="Courier New">Courier New</option>
+      <option value="Tahoma">Tahoma</option>
+      <option value="Arial">Verdana</option>
+    </select>
+    <div class="seperator"></div>
+    <input type="number" onChange="transform('fontSize', this.value)" value="3" max="7" min="1"></input>
+  </div>
+ 
+  <iframe type="text"name="editor"  id="editor"></iframe>
+ 
+
+</div>
+{{!-- </form> --}}
+
+  
+
+    {{!-- <form action=""method=""> --}}
+{{!-- <section class="container2">
+ 
+  </section> --}}
+  {{!-- <input type="hidden" value="asdasdads" name="description"> --}}
+<input type="submit"  id="myButton"value="assign task">
+</form>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<script>
+  
+ $("#myButton").on('click', function() {
+    var data=$("#editor").contents().find("html").html();
+    alert(data);
+       
+});
+  </script>
+   <script src="https://unpkg.com/docx@5.0.2/build/index.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+        
+<script>
+  
+  editor.document.designMode = "On";
+
+function transform(option, argument) {
+  editor.document.execCommand(option, false, argument);
+}
+
+
+</script>
+
+<script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
+
+
+
+
+
+
+  <script>
+
+var x, i, j, l, ll, selElmnt, a, b, c;
+/*look for any elements with the class "custom-select":*/
+x = document.getElementsByClassName("custom-select");
+l = x.length;
+for (i = 0; i < l; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  ll = selElmnt.length;
+  /*for each element, create a new DIV that will act as the selected item:*/
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /*for each element, create a new DIV that will contain the option list:*/
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < ll; j++) {
+    /*for each option in the original select element,
+    create a new DIV that will act as an option item:*/
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /*when an item is clicked, update the original select box,
+        and the selected item:*/
+        var y, i, k, s, h, sl, yl;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < sl; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+            for (k = 0; k < yl; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+      /*when the select box is clicked, close any other select boxes,
+      and open/close the current select box:*/
+      e.stopPropagation();
+      closeAllSelect(this);
+      this.nextSibling.classList.toggle("select-hide");
+      this.classList.toggle("select-arrow-active");
+    });
+}
+function closeAllSelect(elmnt) {
+  /*a function that will close all select boxes in the document,
+  except the current select box:*/
+  var x, y, i, xl, yl, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  xl = x.length;
+  yl = y.length;
+  for (i = 0; i < yl; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < xl; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+/*if the user clicks anywhere outside the select box,
+then close all select boxes:*/
+document.addEventListener("click", closeAllSelect);
+      </script>
+
+
+      
+</body>
+</html>

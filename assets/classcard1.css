@@ -1,0 +1,49 @@
+body{
+  background-image: url("/img/bak.jpg");
+}
+.container1{
+  padding-left: -3px;
+  margin-top: 20px;
+}
+.main-section{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+  Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+width:70px;
+  padding: -8px;
+  
+  }
+
+  .card-part{
+  border-radius: 5px;
+  margin:0px;
+ 
+  width:670px;
+  background-color: #fff;
+  padding-bottom: 20px;
+  }
+  .card-title h1{
+  margin:0px;
+  color:#4C4C4C;
+  font-size:28px;
+  padding: 15px 0px 8px 0px;
+  }
+  .card-description p{
+  min-height:10px;
+  overflow: hidden;
+  color:#848484;
+  margin:0px;
+  font-size: 16px;
+  text-align: justify;
+  }
+  .card-cart a{
+  border-radius:0px;
+  font-size: 16px;
+  background-color: #115da8;
+  }
+  .card-cart a:hover{
+    
+   color: #115da8;
+   background-color: #fff;
+    }
+  .card-cart{
+  padding-top: 10px;}

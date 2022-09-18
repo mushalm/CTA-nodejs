@@ -1,0 +1,221 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="/assets/classtable.css">
+            <link rel="stylesheet" href="/assets/to1.css">
+  <link rel="stylesheet" href="/assets/button.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<script>
+	$(window).load(function() {
+		// Animate loader off screen
+		
+$('.se-pre-con').delay(2000).fadeOut();	});
+    </script>
+</head>
+<body>
+   {{!-- <div class="se-pre-con"></div> --}}
+    <div class="header">
+
+        <img src="/img/logowhite.png" class="logos" height="10px" width="20px">
+          <a href="/index" class="button"><span>Logout</span></a>
+
+    </div>
+        
+        
+             
+            <input type="checkbox" id="openSidebarMenu">
+            <label for="openSidebarMenu" class="sidebarIconToggle">
+                <div class="spinner top"></div>
+                <div class="spinner middle"></div>
+                <div class="spinner bottom"></div>
+            </label>
+            <div id="sidebarMenu">
+                <ul class="menu">
+         <a href="/admin1"> <li><i class="fa fa-home fa-2x"></i>&nbsp; <span style="font-size:18px;">Home</span></a> </li>
+        <a href="/student"> <li><i class="fa fa-user-plus fa-2x"></i>&nbsp;  <span style="font-size:18px;">Students</span></a></li>
+        <a href="/teacher"> <li><i class="fa fa-user-plus fa-2x"></i>&nbsp;  <span style="font-size:18px;">Teachers</span></a></li>
+        <a href="/class"> <li><i class="fa fa-institution fa-2x"></i>&nbsp;  <span style="font-size:18px;">Classes</span></a></li>
+        <a href="/showtask"> <li><i class="fa fa-tasks fa-2x"></i>&nbsp;  <span style="font-size:18px;"> Tasks</span></a></li>
+
+       <a href="#" onclick="window.open('report', '_blank', 'fullscreen=yes'); return false;"> <li><i class="fa fa-file-pdf fa-2x"></i>&nbsp;  <span style="font-size:18px;">Documentation</span></a> </li>
+        
+
+               </ul>
+            </div>
+ <div class=" container">
+    <br>  <br>    <h1 align="center">All Classes</h1>
+    <a class="btn btn-primary" href="/createclass">Create Class</a>
+     <a class="btn btn-primary" href="/exportUser">Excel</a>
+       <a class="btn btn-primary" href="gencpdf">Pdf</a>
+
+    <table id="tabledata">
+  <tr>
+    <th>Id</th>
+    <th>Classname</th>
+    <th>Course</th>
+    <th>Section</th>
+     <th>Teacher</th>
+    <th>Code</th>
+     <th>Action</th>
+  </tr>
+   {{#each classs}}
+  <tr>
+    <td>{{this.id}}</td>
+    <td>{{this.classname}}</td>
+    <td>{{this.course}}</td>
+     <td>{{this.section}}</td>
+      <td>{{this.teacher}}</td>
+      <td>{{this.code}}</td>
+      <td>
+
+          <a class="btn btn-danger"  href="/deleteclass/{{this.id}}">Delete</a>
+        <a class="btn btn-primary" href="/viewclass/{{this.id}}">view</a>
+        <a class="btn btn-success" href="/editclass/{{this.id}}">Edit</a>
+      </td>
+  </tr>
+ 
+    {{/each}}
+</table>
+
+<script type="text/javascript">
+	function downloadDoc(){
+
+html2canvas($("#tabledata")[0],{
+	onrendered:function(canvas){
+		var data=canvas.toDataURL();
+		var docDefinition={
+     
+			content:[{
+         header: 'All Classes',
+				image:data,
+				width:500
+			}]
+		};
+		pdfMake.createPdf(docDefinition).download("Class.pdf");
+	}
+})
+
+
+
+	}
+
+
+</script>
+{{!-- 
+    <table class="table">
+        <thead>
+          <tr>
+            <div><th>
+              <input type="text" class="search-input" placeholder="ID">
+            </th></div>
+           <div> <th>
+              <input type="text" class="search-input" placeholder="Classname">
+            </th></div>
+           <div> <th>
+              <input type="text" class="search-input" placeholder="Course">
+            </th></div>
+            <th>
+              <input type="text" class="search-input" placeholder="Section">
+            </th>
+              <th>
+              <input type="text" class="search-input" placeholder="Code">
+            </th>
+            <th>
+                <input type="text" class="search-input" placeholder="Action">
+              </th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#each classs}}
+      <tr>
+      <td scope="row">{{this.id}}</td>
+      <td>{{this.classname}}</td>
+      <td>{{this.course}}</td>
+      <td>{{this.section}}</td>
+      <td>{{this.code}}</td>
+    <div>  <td>
+          <a class="btn btn-danger"  href="/deleteclass/{{this.id}}">Delete</a>
+        <a class="btn btn-primary" href="/viewclass/{{this.id}}">view</a>
+        <a class="btn btn-success" href="/editclass/{{this.id}}">Edit</a>
+       
+
+      </td></div>
+      </tr>
+      {{/each}}
+      </tbody>
+            </table> 
+</div> --}}
+ <script>
+        const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+
+toggle.addEventListener("click" , () =>{
+    sidebar.classList.toggle("close");
+})
+
+searchBtn.addEventListener("click" , () =>{
+    sidebar.classList.remove("close");
+})
+
+modeSwitch.addEventListener("click" , () =>{
+    body.classList.toggle("dark");
+    
+    if(body.classList.contains("dark")){
+        modeText.innerText = "Light mode";
+    }else{
+        modeText.innerText = "Dark mode";
+        
+    }
+});
+    </script>
+
+
+
+    <script language="javascript">
+        document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".search-input").forEach((inputField) => {
+    const tableRows = inputField
+      .closest("table")
+      .querySelectorAll("tbody > tr");
+    const headerCell = inputField.closest("th");
+    const otherHeaderCells = headerCell.closest("tr").children;
+    const columnIndex = Array.from(otherHeaderCells).indexOf(headerCell);
+    const searchableCells = Array.from(tableRows).map(
+      (row) => row.querySelectorAll("td")[columnIndex]
+    );
+
+    inputField.addEventListener("input", () => {
+      const searchQuery = inputField.value.toLowerCase();
+
+      for (const tableCell of searchableCells) {
+        const row = tableCell.closest("tr");
+        const value = tableCell.textContent.toLowerCase().replace(",", "");
+
+        row.style.visibility = null;
+
+        if (value.search(searchQuery) === -1) {
+          row.style.visibility = "collapse";
+        }
+      }
+    });
+  });
+});
+
+        
+        </script>
+
+</body></html>

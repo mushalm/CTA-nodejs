@@ -1,0 +1,20 @@
+html
+head 
+  title =title 
+
+body
+  div(class="container")
+  <center><div class='well'><b>Users Details</b></div></center>
+  table(class='table table-striped')
+  thead 
+  tr 
+   th ID 
+   th Name 
+   th Email 
+   th Password 
+   each item in items 
+   tr 
+     td=item.id 
+     td=item.username
+     td=item.email 
+     td=item.password

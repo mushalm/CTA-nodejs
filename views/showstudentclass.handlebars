@@ -1,0 +1,80 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link rel="stylesheet" href="/assets/classcard1.css" >
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+{{!-- <link rel="stylesheet" type="text/css" href="custom.css"> --}}
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" type="text/css" href="/assets/to.css">
+ 
+</head>
+<body>
+  <div class="header">
+
+<img src="/img/logowhite.png" class="logo" height="60px" width="80px"></div>
+
+
+     
+    <input type="checkbox" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner top"></div>
+        <div class="spinner middle"></div>
+        <div class="spinner bottom"></div>
+    </label>
+    <div id="sidebarMenu">
+        <ul class="menu">
+{{!-- <a href="/joinclass"> <li><i class="fa fa-home fa-2x"></i>&nbsp; <span style="font-size:18px;">Join class</span></a> </li>
+<a href="/showstudentclass/{{class2.student}}"> <li><i class="fa fa-home fa-2x"></i>&nbsp;  <span style="font-size:18px;">All classes</span></a></li>
+<a href="/logout1"> <li><i class="fa fa-home fa-2x"></i>&nbsp;  <span style="font-size:18px;">Logout</span></a> </li>
+    --}}
+   <a href="/joinclass"> <li><i class="fa fa-plus-square fa-2x"></i>&nbsp; <span style="font-size:18px;">Join class</span></a> </li>
+<a href="/showstudentclass/{{class2.student}}"> <li><i class="fa fa-folder-open fa-2x"></i>&nbsp;  <span style="font-size:18px;">All classes</span></a></li>
+{{!-- <a href="#"> <li><i class="fa fa-home fa-2x"></i>&nbsp;  <span style="font-size:18px;"> Tasks</span></a></li> --}}
+<a href="/logout1"> <li><i class="fa fa-home fa-2x"></i>&nbsp;  <span style="font-size:18px;">Logout</span></a> </li>
+  
+   
+   
+         </ul>
+    </div>
+      <div class="main">
+ {{#each class1}}
+
+
+   <div class="container1 main-section">
+<div class="row">
+  <div class="col-md-3 col-sm-3 col-xs-12 card-main-section">
+   <div class="row card-part">
+     
+   <div class="text-right">
+     <div class="col-md-12 col-sm-12 col-xs-12 card-title">
+         {{!-- <h1>{{this.id}}</h1> --}}
+          <h1>{{this.classname}}</h1>
+     </div>
+      <div class="col-md-12 col-sm-12 col-xs-12 card-description">
+          <p>Section: {{this.section}}
+          </p>
+       </div>
+         <div class="col-md-12 col-sm-12 col-xs-12 card-description">
+          <p>Course: {{this.course}}<br>
+          Teacher: {{this.teacher}}<br>
+         
+          
+        
+          </p>
+       </div>
+       <div class="col-md-12 col-sm-12 col-xs-12 card-cart">
+              <a href="/viewstudentclass/{{this.id}}" class="btn btn-info">View CLass</a>
+        </div>
+   </div>
+ </div>
+ </div>
+</div>
+
+{{/each}}
+  
+</body>
+</html>

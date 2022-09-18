@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    
+    <link rel="stylesheet" href="/assets/style1.css" />
+        
+
+    <title>Sign in & Sign up Form</title>
+  </head>
+  <body>
+    <div class="container">
+     
+
+      <div class="forms-container">
+        <div class="signin-signup">
+            <!-- <a  href="index.html"><img src="img/ctalogo.png" alt="logo"/></a> -->
+          <form method="Post"action="/loginuser"   class="sign-in-form">
+            <h2 class="title">Sign in</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text"name="username" required="required"placeholder="Username" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" required="required"name="password"placeholder="Password" />
+            </div>
+
+          
+           
+          
+           
+             <input type="submit" class="btn" value="Login" id="sign-in-btn"/>
+             <!-- <a href="/"> Login</a> -->
+           
+         
+           
+          </form>
+          <form action="#" class="sign-up-form">
+            <h2 class="title1">Team members</h2>
+            <div class="team_members_container">
+             
+              <div class="team_members">
+                  <div class="team_member">
+                      <div class="imgBx">
+                          <img class="imgicon" src="/img/female.png" alt="">
+                      </div>
+                      <div class="member_content">
+                          <h2>Mushal Manzoor</h2>
+                          <p>manzoormushal@gmail.com</p>
+                      </div>
+                  </div>
+                </div>  
+
+                 <div class="team_members">
+                  <div class="team_member">
+                      <div class="imgBx">
+                          <img class="imgicon" src="/img/female.png" alt="">
+                      </div>
+                      <div class="member_content">
+                          <h2>  Khadija Aziz</h2>
+                          <p>khadijaaziz702@gmail.com</p>
+                      </div>
+                  </div>
+                  <br>
+                  <div class="team_member">
+                      <div class="imgBx">
+                          <img class="imgicon" src="/img/female.png" alt="">
+                      </div>
+                      <div class="member_content">
+                          <h2>Esha Maryam</h2>
+                          <p>eshamaryam@gmail.com</p>
+                      </div>
+                  </div>
+                  <div class="team_member">
+                      
+                      <div class="member_content">
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+           
+      
+          </form>
+        </div>
+      </div>
+   
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <img src="img/logowhite.png"height="60px"width="90px" class="logo"alt="" />
+            <h3>New here ?</h3>
+            <p>
+              Welcome to the CTA<br>(COMSAT TASK ASSIGNER)
+              DO AND DONE
+              
+            </p>
+            <button class="btn transparent" id="sign-up-btn">
+               About Us
+            </button>
+            <a class="but" href="/drop">
+            Login As
+            </a>
+          </div>
+          <img src="img/log.svg" class="image" alt="" />
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <img src="img/logowhite.png"height="60px"width="90px" class="blue"alt="" />
+
+            <h3>One of us ?</h3>
+            <p>
+                Welcome to the CTA<br>(COMSAT TASK ASSIGNER)
+                DO AND DONE
+            </p>
+
+            <a href="/adminlogin" class="btntransparent" id="sign-in-btn">
+              Sign in
+            </a>
+          </div>
+     
+          <img src="img/register.svg" class="image" alt="" />
+        </div>
+      </div>
+    </div>
+<div id="banner"></div>
+        <div id="copyright"><b>All copy right are reserved by the Mushal, Esha and khadija &copy;</b></div>
+
+       
+    <script >
+
+const sign_in_btn = document.querySelector("#sign-in-btn");
+const sign_up_btn = document.querySelector("#sign-up-btn");
+const container = document.querySelector(".container");
+
+sign_up_btn.addEventListener("click", () => {
+  container.classList.add("sign-up-mode");
+});
+
+sign_in_btn.addEventListener("click", () => {
+  container.classList.remove("sign-up-mode");
+});
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,121 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="/assets/table.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+</head>
+<body> 
+ <div class=" container">
+    <h1>All users</h1>
+    <a class="btn btn-primary" href="/create">Create User</a>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th>
+              <input type="text" class="search-input" placeholder="ID">
+            </th>
+            <th>
+              <input type="text" class="search-input" placeholder="Username">
+            </th>
+            <th>
+              <input type="text" class="search-input" placeholder="Email">
+            </th>
+            <th>
+              <input type="text" class="search-input" placeholder="Password">
+            </th>
+            <th>
+                <input type="text" class="search-input" placeholder="Action">
+              </th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#each users}}
+      <tr>
+      <td scope="row">{{this.id}}</td>
+      <td>{{this.username}}</td>
+      <td>{{this.email}}</td>
+      <td>{{this.password}}</td>
+      
+      <td>
+          <a class="btn btn-danger"  href="/delete/{{this.id}}">Delete</a>
+        <a class="btn btn-primary" href="/user/{{this.id}}">view</a>
+        <a class="btn btn-success" href="/edit/{{this.id}}">Edit</a>
+       
+
+      </td>
+      </tr>
+      {{/each}}
+      </tbody>
+            </table> 
+</div>
+ <script>
+        const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+
+toggle.addEventListener("click" , () =>{
+    sidebar.classList.toggle("close");
+})
+
+searchBtn.addEventListener("click" , () =>{
+    sidebar.classList.remove("close");
+})
+
+modeSwitch.addEventListener("click" , () =>{
+    body.classList.toggle("dark");
+    
+    if(body.classList.contains("dark")){
+        modeText.innerText = "Light mode";
+    }else{
+        modeText.innerText = "Dark mode";
+        
+    }
+});
+    </script>
+
+
+
+    <script language="javascript">
+        document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".search-input").forEach((inputField) => {
+    const tableRows = inputField
+      .closest("table")
+      .querySelectorAll("tbody > tr");
+    const headerCell = inputField.closest("th");
+    const otherHeaderCells = headerCell.closest("tr").children;
+    const columnIndex = Array.from(otherHeaderCells).indexOf(headerCell);
+    const searchableCells = Array.from(tableRows).map(
+      (row) => row.querySelectorAll("td")[columnIndex]
+    );
+
+    inputField.addEventListener("input", () => {
+      const searchQuery = inputField.value.toLowerCase();
+
+      for (const tableCell of searchableCells) {
+        const row = tableCell.closest("tr");
+        const value = tableCell.textContent.toLowerCase().replace(",", "");
+
+        row.style.visibility = null;
+
+        if (value.search(searchQuery) === -1) {
+          row.style.visibility = "collapse";
+        }
+      }
+    });
+  });
+});
+
+        
+        </script>
+
+</body></html>

@@ -1,0 +1,454 @@
+@import url("https://v1.fontapi.ir/css/Vazir:500");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-family: sans-serif, Tahoma;
+  min-height: 100vh;
+  background: #ffffff;
+  line-height: 1.6;
+  display: flex;
+  margin: 0 0px ;
+  /* justify-content: left; */
+   align-items: flex-start; 
+  text-align: left;
+  direction: ltr;
+  overflow: hidden;
+}
+
+.container1 {
+	max-height: 10px;
+	width: 100%;
+	margin: 90px 25px;
+	padding: 0 1rem;
+	background: inherit;
+	/* box-shadow: 0 0 28px rgba(153, 170, 232, 0.5); */
+	border-radius: 6px;
+	padding: 0.8rem;
+  }
+div.input-block {
+	position: relative;
+  }
+  div.input-block input {
+	font-weight: 500;
+	font-size: 1.3rem;
+	color: #106dae;
+	width: 350px;
+	padding: 25px 15px;
+	border-radius: 1rem;
+	border: 2px solid  #D9D9D9;
+	outline:none;
+  }
+  div.input-block span.placeholder1 {
+	position: absolute;
+	margin: 17px 0;
+	padding: 0 4px;
+	font-family: Roboto, sans-serif;
+	color:  #106dae;
+	display: flex;
+	align-items: center;
+	font-size: 1.6rem;
+	top: 0;
+	left: 17px;
+	transition: all 0.2s;
+	transform-origin: 0% 0%;
+	background: none;
+	pointer-events: none;
+  }
+  div.input-block input:valid + span.placeholder1,
+  div.input-block input:focus + span.placeholder1 {
+	transform: scale(0.8) translateY(-30px);
+	background: #fff;
+  }
+  div.input-block input:focus{
+	color: #284B63;
+	border-color: #416c89;
+  }
+  div.input-block input:focus + span.placeholder1 {
+	color: #40769a;
+  }
+.container {
+  max-width: 600px;
+  width: 100%;
+  margin: 130px 45px;
+  padding: 0 1rem;
+  background: #115da8;
+  box-shadow: 0 0 28px rgba(153, 170, 232, 0.5);
+  border-radius: 6px;
+  padding: 0.4rem;
+}
+.container2 {
+	max-height: 460px;
+	width: 20%;
+	margin: 110px 80px;
+	padding: 0 1rem;
+	background:#fff;
+	box-shadow: 0 0 28px rgba(153, 170, 232, 0.5);
+	border-radius: 6px;
+	padding: 0.4rem;
+	text-decoration: none;
+  }
+ 
+  .custom-select {
+	position: relative;
+	font-family: Arial;
+  }
+  
+  .custom-select select {
+	display: none; /*hide original SELECT element:*/
+  }
+  
+  .select-selected {
+	background-color: #115da8;
+  }
+  
+  /*style the arrow inside the select element:*/
+  .select-selected:after {
+	position: absolute;
+	content: "";
+	top: 14px;
+	right: 10px;
+	width: 0;
+	height: 0;
+	border: 6px solid transparent;
+	border-color: #fff transparent transparent transparent;
+  }
+  
+  /*point the arrow upwards when the select box is open (active):*/
+  .select-selected.select-arrow-active:after {
+	border-color: transparent transparent #fff transparent;
+	top: 7px;
+  }
+  
+  /*style the items (options), including the selected item:*/
+  .select-items div,.select-selected {
+	color: #ffffff;
+	padding: 8px 16px;
+	border: 1px solid transparent;
+	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+	cursor: pointer;
+	user-select: none;
+  }
+  
+  /*style items (options):*/
+  .select-items {
+	position: absolute;
+	background-color: #115da8;
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 99;
+  }
+  
+  /*hide the items when the select box is closed:*/
+  .select-hide {
+	display: none;
+  }
+  
+  .select-items div:hover, .same-as-selected {
+	background-color: rgba(0, 0, 0, 0.1);
+  }
+ 
+.button-64 {
+  align-items: center;
+  background-image: linear-gradient(144deg,#88baed, #115da8 50%,#54a2f0);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  margin: 510px -80px;
+}
+
+.button-64:active,
+.button-64:hover {
+  outline: 0;
+}
+
+.button-64 span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.button-64:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 19px;
+    min-width: 196px;
+  }
+}
+
+label,
+textarea {
+  font-family: inherit;
+}
+
+.tools {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tools > button,
+.tools > .color-pallete {
+  overflow: hidden;
+  display: block;
+  transition: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor:auto;
+  margin: 0.4rem;
+  width: 50px;
+  height: 42px;
+  color: #f5f5f5;
+  background: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+  box-shadow: 0 0 28px rgba(0, 0, 0, 0.5);
+}
+
+.tools .color-pallete {
+  margin: 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tools > button:hover,
+.tools > .color-pallete:hover {
+  box-shadow: 0 0 0 rgb(0, 0, 0, 0);
+  border-radius: 2px;
+  transform-origin: 35% 110%;
+  transform: scale(1.15);
+}
+
+.tools > button {
+  font-size: 1.2rem;
+  padding: 0.4rem 0.5rem;
+  background: inherit;
+}
+
+.tools > button i,
+.tools > label i {
+  font-size: 1.8rem;
+}
+
+.form-control {
+  position: relative;
+  max-width: 100%;
+}
+
+textarea {
+  transition: 0.36s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-size: 18px;
+  width: 100%;
+  height: 200px;
+  color: #f5f5f5;
+  background: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 28px rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  outline: none;
+  resize: none;
+  padding: 0.6rem;
+  caret-color: currentColor;
+}
+
+textarea:focus {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 28px rgba(10, 0, 0, 0.5);
+}
+
+@keyframes TEXT {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+    overflow: hidden;
+  }
+}
+
+@keyframes TEXTin {
+  from {
+    width: 0;
+    overflow: hidden;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.placeholder {
+  color: rgba(245, 245, 245, 0.6);
+  position: absolute;
+  top: 0.8rem;
+  left: 0.6rem;
+  user-select: none;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.active {
+  background: #ffffff !important;
+  color: #115da8 !important ;
+  transition: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: 35% 110%;
+  transform: scale(1.15);
+}
+
+#color {
+  transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: fixed;
+  right: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.ModeAnimations {
+  animation: Mode 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes Mode {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+/* calendar */
+
+.form-question {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 0 3rem;
+    min-height: 3rem;
+  }
+  .form-question__title {
+    color: #342357;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  .input-container {
+    border-bottom: solid 2px #333333;
+  }
+  .input-container input {
+    border: none;
+    box-sizing: border-box;
+    outline: 0;
+    padding: .75rem;
+    width: 100%;
+  }
+
+  header {
+    background: #006BA6;
+    line-height: 5px;
+    position: fixed;
+    width: 100%;
+}
+
+label {
+    line-height: 80px;
+    font-size: 30px;
+    color: white;
+    font-weight: 200;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+header ul {
+    float: right;
+    margin-right: 20px;
+}
+
+header ul li {
+    line-height: 80px;
+    margin: 0 10px;
+}
+
+header ul li a {
+    color: white;
+    font-size: 20px;
+    padding: 6px 15px;
+    font-weight: 600;
+    background-color: #0496FF;
+    border-radius: 3px;
+}
+
+header ul li a:hover {
+    background-color:#0496FF ;
+    color: white;
+    transition: 0.5s;
+}
+  
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}

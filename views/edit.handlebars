@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/createclass.css">
+
+    <title>Update user</title>
+</head>
+<body>
+    <section>
+  
+        <div class="box">
+          
+          <div class="square" style="--i:0;"></div>
+          <div class="square" style="--i:1;"></div>
+          <div class="square" style="--i:2;"></div>
+          <div class="square" style="--i:3;"></div>
+          <div class="square" style="--i:4;"></div>
+          <div class="square" style="--i:5;"></div>
+          
+         <div class="container"> 
+          <div class="form"> 
+            <h2>Create User</h2>
+            <form action="/update/{{user.id}}"method="POST">
+              <div class="inputBx">
+                <input type="text" name="username"value="{{user.username}}"required="required">
+                <span>Username</span>
+               
+              </div>
+              <div class="inputBx">
+                  <input type="text"name="email" value="{{user.email}}"required="required">
+                  <span>Email</span>
+                 
+                </div>
+              <div class="inputBx">
+                  <input type="text"name="password"value="{{user.password}}" required="required">
+                  <span>Password</span>  
+                </div>
+           
+              
+              
+                <button class="button"type="submit" >Update user </button>
+             
+            </form>
+           
+          </div>
+        </div>
+          
+        </div>
+      </section>
+      
+      <!---JS CDN Link---->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <!--Custom JS File-->
+      <script>
+      function show_hide_password(target){
+          var input = document.getElementById('password-input');
+          if (input.getAttribute('type') == 'password') {
+              target.classList.add('view');
+              input.setAttribute('type', 'text');
+          } else {
+              target.classList.remove('view');
+              input.setAttribute('type', 'password');
+          }
+          return false;
+      }
+      
+      </script>
+</body>
+</html>

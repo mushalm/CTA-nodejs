@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> admin</title>
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/assets/to1.css">
+<link rel="stylesheet" href="/assets/main.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="/assets/ad.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<script>
+	$(window).load(function() {
+		// Animate loader off screen
+		
+$('.se-pre-con').delay(2000).fadeOut();	});
+    </script>
+   
+</head>
+
+<body>
+ 
+<div class="se-pre-con"></div>
+
+    <!-- <nav> -->
+       
+
+            <!-- <img class="logo" src="img/logowhite.png"height="60px"width="90px"alt=""/>
+
+
+            <ul>
+            <li><a href="/INDEX">LOGOUT</a></li>
+           </ul> 
+         
+       
+    </nav>
+    <div class="side-menu"><br>
+       <h1><font color="white">ADMIN</font></h1><br>
+
+        </center> <br><a href="/admin1"> <i class="fa fa-home"></i><span>Home</span></a> 
+        <a href="/student"><i class="fa fa-user-plus"></i><span>Students</span></a> 
+        <a href="/teacher"><i class="fa fa-user-plus"></i><span>Teachers</span></a> 
+        <a href="/class"><i class="fa fa-institution"></i><span>Classes</span></a> 
+        <a href="doc.html"><i class="fa fa-file-pdf-o"</i></i><span>Documentation</span></a>
+         <a href="#"><i class="fa fa-cog"></i><span>Setting</span></a> 
+         <a href="#" class="Logout"><span>showTable</span></a>
+    </div> -->
+    <div class="header">
+
+        <img src="/img/logowhite.png" class="logos" height="10px" width="20px">
+      <a href="/index" class="button"><span>Logout</span></a>
+    </div>
+        
+        
+             
+            <input type="checkbox" id="openSidebarMenu">
+            <label for="openSidebarMenu" class="sidebarIconToggle">
+                <div class="spinner top"></div>
+                <div class="spinner middle"></div>
+                <div class="spinner bottom"></div>
+            </label>
+            <div id="sidebarMenu">
+                <ul class="menu">
+        <a href="/admin1"> <li><i class="fa fa-home fa-2x"></i>&nbsp; <span style="font-size:18px;">Home</span></a> </li>
+        <a href="/student"> <li><i class="fa fa-user-plus fa-2x"></i>&nbsp;  <span style="font-size:18px;">Students</span></a></li>
+        <a href="/teacher"> <li><i class="fa fa-user-plus fa-2x"></i>&nbsp;  <span style="font-size:18px;">Teachers</span></a></li>
+        <a href="/class"> <li><i class="fa fa-institution fa-2x"></i>&nbsp;  <span style="font-size:18px;">Classes</span></a></li>
+        <a href="/showtask"> <li><i class="fa fa-tasks fa-2x"></i>&nbsp;  <span style="font-size:18px;"> Tasks</span></a></li>
+
+       <a href="#" onclick="window.open('adminu', '_blank', 'fullscreen=yes'); return false;"> <li><i class="fa fa-file-pdf fa-2x"></i>&nbsp;  <span style="font-size:18px;">Documentation</span></a> </li>
+                </ul>
+            </div>
+    <div class="data"> 
+        <br><br><br><br>
+        
+ 
+ 
+        <div class="main_container">
+        
+       
+        
+        <div class="sprint_overview">
+            <div class="title">
+               
+                 {{!-- <a href="#" class="btn">last sprint</a> --}}
+            </div>
+            <div class="sprint_overview_cards">
+                <div class="sprint_overview_card">
+                    <i class="fas fa-tachometer-alt icon_l"></i>
+                    <p>Total Classes</p>
+                    <h5>{{this.count}}</h5>
+                </div>
+                <div class="sprint_overview_card">
+                    <i class="fas fa-user icon_l"></i>
+                    <p>Total Students</p>
+                    <h5>{{this.scount}}</h5>
+                </div>
+                <div class="sprint_overview_card">
+                    <i class="fas fa-suitcase icon_l"></i>
+                    <p> Total Teachers</p>
+                    <h5>{{this.tcount}}</h5>
+                </div>
+                <div class="sprint_overview_card">
+                    <i class="fas fa-search icon_l"></i>
+                    <p>Missing Tasks</p>
+                    <h5>{{this.tasks}}</h5>
+                </div>
+                <div class="sprint_overview_card">
+                    <i class="fas fa-globe-americas icon_l"></i>
+                    <p>Joined class</p>
+                    <h5>{{this.join}}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="charts_stories">
+            <div class="burnsown_chart_container">
+                <header>
+		<h1>To do List</h1>
+		<form id="new-task-form">
+			<input 
+				type="text" 
+				name="new-task-input" 
+				id="new-task-input" 
+				placeholder="Title & instruction"  required />
+                                
+			<input 	type="submit" id="new-task-submit" 	value="Add" >
+		</form>
+	</header>
+
+	<main>
+		<section class="task-list">
+			<h2>Tasks</h2>
+
+			<div id="tasks">
+
+				<!-- <div class="task">
+					<div class="content">
+						<input 
+							type="text" 
+							class="text" 
+							value="A new task"
+							readonly>
+					</div>
+					<div class="actions">
+						<button class="edit">Edit</button>
+						<button class="delete">Delete</button>
+					</div>
+				</div> -->
+
+			</div>
+		</section>
+	</main>
+
+
+
+
+            </div>
+            <div class="sprint_stories_container">
+                <div class="title">
+                    <h1>Teacher against classes</h1>
+                    <a href="/class" class="btn">see all</a>
+                </div>
+                <div class="sprint_stories">
+                    <table>
+                        <tr>
+                            <td><strong>Id</strong></td>
+                            <td><strong>Teacher</strong></td>
+                            <td><strong>Class</strong></td>
+                            <td><strong>Code</strong></td>
+                            <td><i class="fas fa-ellipsis-h"></i></td>
+                        </tr>
+                        {{#each classs}}
+                        <tr>
+                            <td>{{this.id}}</td>
+                            <td>{{this.teacher}}</td>
+                            <td>{{this.classname}}</td>
+                            <td>{{this.code}}</td>
+                            <td><i class="fas fa-ellipsis-h"></i></td>
+                        </tr>
+                       {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="team_members_container"> -->
+            <div class="title">
+                <h1>Team members</h1>
+                {{!-- <a href="#" class="btn">add member</a> --}}
+            </div>
+            <div class="team_members">
+                <div class="team_member">
+                    <div class="imgBx">
+                        <img src="/img/female.png" alt="">
+                    </div>
+                    <div class="member_content">
+                        <h2>Mushal Manzoor</h2>
+                        <p>manzoormushal@gamil.com</p>
+                    </div>
+                </div>
+                <div class="team_member">
+                    <div class="imgBx">
+                        <img src="/img/female.png" alt="">
+                    </div>
+                    <div class="member_content">
+                        <h2>Khadija Aziz</h2>
+                        <p>khadijaaziz702@gmail.com</p>
+                    </div>
+                </div>
+                <div class="team_member">
+                    <div class="imgBx">
+                        <img src="/img/female.png" alt="">
+                    </div>
+                    <div class="member_content">
+                        <h2>Esha Maryam</h2>
+                        <p>eshamaryam@gamil.com</p>
+                    </div>
+                </div>
+                <div class="team_member">
+                    
+                    <div class="member_content">
+                        
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+    </div>
+    {{!-- <div class="right_sidebar">
+       
+        
+       
+    </div> --}}
+  </div>
+</div>
+<script>
+    window.addEventListener('load', () => {
+	const form = document.querySelector("#new-task-form");
+	const input = document.querySelector("#new-task-input");
+
+	const list_el = document.querySelector("#tasks");
+
+	form.addEventListener('submit', (e) => {
+		e.preventDefault();
+
+		const task = input.value;
+
+		const task_el = document.createElement('div');
+		task_el.classList.add('task');
+
+		const task_content_el = document.createElement('div');
+		task_content_el.classList.add('content');
+
+		task_el.appendChild(task_content_el);
+
+		const task_input_el = document.createElement('input');
+		task_input_el.classList.add('text');
+		task_input_el.type = 'text';
+		task_input_el.value = task;
+		task_input_el.setAttribute('readonly', 'readonly');
+
+		task_content_el.appendChild(task_input_el);
+
+		const task_actions_el = document.createElement('div');
+		task_actions_el.classList.add('actions');
+		
+		const task_edit_el = document.createElement('button');
+		task_edit_el.classList.add('edit');
+		task_edit_el.innerText = 'Edit';
+
+		const task_delete_el = document.createElement('button');
+		task_delete_el.classList.add('delete');
+		task_delete_el.innerText = 'Delete';
+
+		task_actions_el.appendChild(task_edit_el);
+		task_actions_el.appendChild(task_delete_el);
+
+		task_el.appendChild(task_actions_el);
+
+		list_el.appendChild(task_el);
+
+		input.value = '';
+
+		task_edit_el.addEventListener('click', (e) => {
+			if (task_edit_el.innerText.toLowerCase() == "edit") {
+				task_edit_el.innerText = "Save";
+				task_input_el.removeAttribute("readonly");
+				task_input_el.focus();
+			} else {
+				task_edit_el.innerText = "Edit";
+				task_input_el.setAttribute("readonly", "readonly");
+			}
+		});
+
+		task_delete_el.addEventListener('click', (e) => {
+			list_el.removeChild(task_el);
+		});
+	});
+});
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></>
+    <script >
+
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Direst', 'Email', 'Ad Networks', 'Video Ads'],
+        datasets: [{
+            label: 'Source',
+            data: [22, 12, 8, 6],
+            backgroundColor: [
+                'rgb(22, 132, 11)',
+                'rgb(75, 0, 252)',
+                'rgb(126, 0, 127)',
+                'rgb(235, 11, 237)',
+
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+    </>
+    <script>
+        const leftSideBar = document.querySelector('.left_sidebar');
+        const toggle = document.querySelector('.toggle');
+        toggle.onclick = function() {
+            leftSideBar.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

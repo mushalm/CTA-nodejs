@@ -1,0 +1,42 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link rel="stylesheet" href="/assets/card.css" >
+
+</head>
+<body>
+  {{!-- <div class="container">
+  <div class="card  w-75" style="width: 20rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{user.username}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{user.email}}</h6>
+    <p class="card-text">{{user.password}}</p>
+    <a href="/home" class="btn btn-primary">All Users</a>
+   
+  </div>
+</div>
+  </div> --}}
+
+  <div class="main-container">
+  <div class="heading">
+    <h1 class="heading__title">{{student.susername}}</h1>
+    <p class="heading__credits"><a class="heading__link" target="_blank" href="https://dribbble.com/sl">{{student.semail}}</a></p>
+  </div>
+  <div class="cards">
+    <div class="card card-1">
+      <div class="card__icon"><i class="fas fa-bolt"></i></div>
+      <p class="card__exit"><i class="fas fa-times"></i></p>
+       <h2 class="card__title">Password: {{student.spassword}}</h2>
+    
+      <p class="card__apply">
+        <a class="card__link" href="/student">All Students <i class="fas fa-arrow-right"></i></a>
+      </p>
+    </div>
+  
+   
+</body>
+</html>

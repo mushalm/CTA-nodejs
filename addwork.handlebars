@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CTA</title>
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" type="text/css" href="/assets/to.css">
+  
+
+
+<meta charset="utf-8">
+    <title></title>
+    
+  
+<link rel="stylesheet" href="/assets/bt.css">
+</head>
+<body>
+<div class="header">
+
+   <img src="/img/logowhite.png" class="logo" height="60px" width="80px">
+
+</div>
+    <input type="checkbox" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner top"></div>
+        <div class="spinner middle"></div>
+        <div class="spinner bottom"></div>
+    </label>
+    <div id="sidebarMenu">
+        <ul class="menu">
+<a href="/"> <li><i class="fa fa-home fa-2x"></i>&nbsp; <span style="font-size:18px;">Home</span> </a> </li>
+<a href="/showclass"> <li><i class="fa fa-home fa-2x"></i>&nbsp;  <span style="font-size:18px;">All Classes</span></a></li>
+<a href="/addwork"> <li><i class="fa fa-home fa-2x"></i>&nbsp;  <span style="font-size:18px;">Add Work</span></a></li>
+<a href="/teachercreateclass"> <li><i class="fa fa-home fa-2x"></i>&nbsp;  <span style="font-size:18px;">Create Class</span></a></li>
+<a href="#"> <li><i class="fa fa-home fa-2x"></i>&nbsp;  <span style="font-size:18px;">CONTACT US</span></a> </li>
+        </ul>
+    </div>
+    <div class="main">
+    <div class="text">
+  <p ><b>Teacher Create</b></p>
+  <p>
+    <span class="word wisteria">Assignment.</span>
+    <span class="word belize">Quiz.</span>
+    <span class="word pomegranate">Material.</span>
+        <span class="word pomegranate">Course Folder.</span>
+
+   
+  </p>
+</div>        
+    
+<br><br><br><br><br><br><br>
+<button class="btn btn3"><span><i class="fa fa-edit fa-2x"></i></span>
+         <a href="/showclass">  Add Assignment</a></button>
+  <button class="btn btn4"><span><i class="fa fa-question-circle fa-2x"></i></span>
+           <a href="/quiz"> Create Quiz</a></button><br>
+<button class="btn btn3"><span><i class="fa fa-book fa-2x"></i></span>
+             <a href="/doc"> Add Materials</a></button>
+  <button class="btn btn4"> <span><i class="fa fa-folder fa-2x"></i></span>
+            Course Folder</button>
+</div>
+
+  <script language="javascript">
+    var words = document.getElementsByClassName('word');
+var wordArray = [];
+var currentWord = 0;
+
+words[currentWord].style.opacity = 1;
+for (var i = 0; i < words.length; i++) {
+  splitLetters(words[i]);
+}
+
+function changeWord() {
+  var cw = wordArray[currentWord];
+  var nw = currentWord == words.length-1 ? wordArray[0] : wordArray[currentWord+1];
+  for (var i = 0; i < cw.length; i++) {
+    animateLetterOut(cw, i);
+  }
+  
+  for (var i = 0; i < nw.length; i++) {
+    nw[i].className = 'letter behind';
+    nw[0].parentElement.style.opacity = 1;
+    animateLetterIn(nw, i);
+  }
+  
+  currentWord = (currentWord == wordArray.length-1) ? 0 : currentWord+1;
+}
+
+function animateLetterOut(cw, i) {
+  setTimeout(function() {
+		cw[i].className = 'letter out';
+  }, i*80);
+}
+
+function animateLetterIn(nw, i) {
+  setTimeout(function() {
+		nw[i].className = 'letter in';
+  }, 340+(i*80));
+}
+
+function splitLetters(word) {
+  var content = word.innerHTML;
+  word.innerHTML = '';
+  var letters = [];
+  for (var i = 0; i < content.length; i++) {
+    var letter = document.createElement('span');
+    letter.className = 'letter';
+    letter.innerHTML = content.charAt(i);
+    word.appendChild(letter);
+    letters.push(letter);
+  }
+  
+  wordArray.push(letters);
+}
+
+changeWord();
+setInterval(changeWord, 4000);
+
+
+    </script>
+ 
+</body>
+</html>

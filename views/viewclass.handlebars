@@ -1,0 +1,275 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link rel="stylesheet" href="/assets/card1.css" >
+        <link rel="stylesheet" href="/assets/popup.css" >
+{{!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+  <link rel="stylesheet" href="/assets/post.css">
+ <link rel="stylesheet" type="text/css" href="/assets/to.css">
+ {{!-- <link rel="stylesheet" type="text/css" href="card.css">
+ --}}
+
+   
+    <link rel="stylesheet" href="/assets/tab1.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="/assets/abc.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+<style>
+  .accordion-item{
+    width: 322px;
+    height: 217px;
+    margin:-198px 865px;
+}
+  </style>
+</head>
+<body>
+ 
+ <div class="header">
+
+<img src="/img/logowhite.png" class="logo" height="60px" width="80px"></div>
+
+
+     
+    <input type="checkbox" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner top"></div>
+        <div class="spinner middle"></div>
+        <div class="spinner bottom"></div>
+    </label>
+    {{!-- <div id="sidebarMenu">
+        <ul class="menu">
+<a href="/teachercreateclass"> <li><i class="fa fa-plus-square fa-2x"aria-hidden="true"></i>&nbsp; <span style="font-size:18px;">Create class</span></a> </li>
+<a href="/addwork"> <li><i class="fa fa-briefcase fa-2x"aria-hidden="true"></i>&nbsp;  <span style="font-size:18px;">Add work</span></a></li>
+<a href="/showclass"> <li><i class="fa fa-folder-open fa-2x"aria-hidden="true"></i>&nbsp;  <span style="font-size:18px;">All classes</span></a></li>
+<a href="#"> <li><i class="fa fa-home fa-2x"></i>&nbsp;  <span style="font-size:18px;"> Tasks</span></a></li>
+<a href="#"> <li><i class="fa fa-home fa-2x"></i>&nbsp;  <span style="font-size:18px;">CONTACT US</span></a> </li>
+        </ul>
+    </div> --}}
+    {{!-- <div class="main-container">
+  <div class="heading">
+    <h1 class="heading__title">{{classs.classname}}</h1>
+    <p class="heading__credits"><a class="heading__link" target="_blank" href="">{{classs.course}}</a></p>
+  </div>
+  <div class="cards">
+    <div class="card card-1">
+         <a class="btn btn-success" href="/edittask/{{tasks.id}}">Edit</a>
+      <div class="card__icon"><i class="fas fa-bolt">Section: {{classs.section}}</i></div>
+      <p class="card__exit"><i class="fas fa-times">subject:{{tasks.subject}}<br>description:{{tasks.description}}
+      <br>title:{{tasks.title}} <br>time:{{tasks.tasktime}} <br>date:{{tasks.taskdate}}
+      </i></p>
+       <h2 class="card__title">Code: {{classs.code}}<br>Teacher: {{classs.teacher}}<br><a href="/openclass/{{classs.id}}">tasks:{{tasks.file}}</a></h2>
+      <p class="card__apply">
+
+        <a class="card__link" href="/showteacher">All Classes <i class="fas fa-arrow-right"></i></a>
+      <a class="card__link"  href="/createtask/{{classs.id}}"> Add Task <i class="fas fa-arrow-right"></i></a>
+      <a class="card__link" href="/showtask"> show Task <i class="fas fa-arrow-right"></i></a>
+    </p>
+    </div>
+  </div>
+ </div>
+
+ --}}
+
+
+
+<div class="wrapper">
+   
+    <input type="radio" name="slider" checked id="home">
+    <input type="radio" name="slider" id="blog">
+    <input type="radio" name="slider" id="code">
+    <input type="radio" name="slider" id="help">
+    <input type="radio" name="slider" id="about">
+    <nav>
+      <label for="home" class="home"><a class="anchor" href="/openpdf/{{classs.id}}"> Class</a></label>
+      <label for="blog" class="blog"><a class="anchor" href="/openstudent/{{classs.id}}"> Student</a></label>
+      <label for="code" class="code"><a class="anchor" href="/openassignment/{{classs.id}}"> Assignment</a></label>
+      <label for="help" class="help"><a class="anchor" href="/openmaterial/{{classs.id}}"> Material</a></label>
+      <label for="about" class="about">About</label>
+      <div class="slider"></div>
+    </nav>
+    
+  </div>
+
+
+   
+
+
+<div class="main-container">
+  
+
+  <div class="cards">
+    <div class="card card-1">
+        <div class="card__icon"><i class="fas fa">Class: {{classs.classname}}-{{classs.section}}</i></div>
+      <h4 class="card__exit"><i class="fas fa"> <br>Course:{{classs.course}} </i></h4>
+      {{!-- <br>title:{{tasks.title}} <br>time:{{tasks.tasktime}} <br>date:{{tasks.taskdate}} --}}
+  
+       <h5 class="card__exit"><i class="fas fa">Classcode: {{classs.code}}<br>Teacher: {{classs.teacher}}<br></i></h5>
+      <p class="card__apply">
+
+        {{!-- <a class="card__link" href="/showteacher">All Classes <i class="fas fa-arrow-right"></i></a> --}}
+      <a class="card__link"  href="/createtask/{{classs.id}}"> Add Task <i class="fas fa-arrow-right"></i></a>
+      {{!-- <a class="card__link" href="/showtask"> show Task <i class="fas fa-arrow-right"></i></a> --}}
+    </p>
+    </div>
+  </div>
+ </div>
+
+ </div>
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+             {{!-- <a class="btn btn-success" href="/edittask/{{tasks.id}}">Edit</a>
+ <a class="btn btn-danger"  href="/deletetask/{{tasks.id}}">Delete</a> --}}
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+     Pending Task
+      </button>
+    </h2>
+   <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+       <br>  <strong> {{tasks.title}}</strong><br>  <strong> Due: </strong>    {{tasks.taskdate}}
+           <a class="btn btn-success" href="/openassignment/{{classs.id}}">View</a>
+
+      </div>
+    </div>
+  </div>
+
+{{!-- <div class="widget-post" aria-labelledby="post-header-title">
+  <div class="widget-post__header">
+    <h2 class="widget-post__title" id="post-header-title">
+       <i class="fa fa-pencil" aria-hidden="true"></i>
+      Write post
+    </h2>
+  </div>
+  <form id="widget-form" class="widget-post__form" name="form" aria-label="post widget">
+    <div class="widget-post__content">
+      <label for="post-content" class="sr-only">Share</label>
+      <textarea name="post" id="post-content" class="widget-post__textarea scroller" placeholder="What's in mind?"></textarea>
+    </div>
+    <div class="widget-post__options is--hidden" id="stock-options">
+    </div>
+    <div class="widget-post__actions post--actions">
+      <div class="post-actions__attachments"> --}}
+        {{!-- <button type="button" class="btn post-actions__stock attachments--btn" aria-controls="stock-options" aria-haspopup="true">
+          <i class="fa fa-usd" aria-hidden="true"></i>
+          stock
+        </button> --}}
+        {{!-- <button type="button" class="btn post-actions__upload attachments--btn">
+          <label for="upload-image" class="post-actions__label">
+             <i class="fa fa-upload" aria-hidden="true"></i> 
+            upload 
+          </label>
+        </button>
+        <input type="file" id="upload-image" accept="image/*" multiple>
+      </div>
+      <div class="post-actions__widget">
+        <button class="btn post-actions__publish">post</button>
+      </div> --}}
+    {{!-- </div>
+  </form>
+
+    </div>
+<br><br>
+<center>
+<section>
+		
+		<div class="content">
+			
+		</div>
+		<div class="container">
+			<div class="box">
+				<i class="fa fa-thumbs-up" id="like"></i>
+				<span id="like-counter">0</span>
+			</div>
+			<div class="box">
+				<i class="fa fa-heart" id="love"></i>
+				<span id="love-counter">0</span>
+			</div>
+			<div class="box">
+				<i class="fa fa-comment"></i>
+				<span id="comment-counter">0</span>
+			</div>
+			<div class="box">
+				<input type="text"  placeholder="add any comment... "    id="comment" >
+				<button id="add-comment">Add a comment</button>
+			</div>
+			<section class="comments" id="comments-container"></section>
+		</div>
+	</section>
+</center>
+               --}}
+    
+<script >
+
+  /*global console*/
+var likeIcon = document.getElementById("like"),
+    likeCounter = likeIcon.nextElementSibling,
+    loveIcon = document.getElementById("love"),
+    loveCounter = loveIcon.nextElementSibling,
+    comment = document.getElementById("comment"),
+    addComment = comment.nextElementSibling,
+    commentsContainer = document.getElementById("comments-container"),
+    commentCounter = document.getElementById("comment-counter");
+
+likeIcon.addEventListener("click", function () {
+    this.classList.toggle("like");
+    var numberOfLikes = Number(likeCounter.textContent);
+    if (this.classList.contains("like")) {
+        numberOfLikes++;
+        likeCounter.textContent = numberOfLikes;
+    } else {
+        numberOfLikes--;
+        likeCounter.textContent = numberOfLikes;
+    }
+});
+
+loveIcon.addEventListener("click", function () {
+    this.classList.toggle("love");
+    var numberOfLoves = Number(loveCounter.textContent);
+    if (this.classList.contains("love")) {
+        numberOfLoves++;
+        loveCounter.textContent = numberOfLoves;
+    } else {
+        numberOfLoves--;
+        loveCounter.textContent = numberOfLoves;
+    }
+});
+
+addComment.addEventListener("click", function () {
+    var numberOfComments = Number(commentCounter.textContent),
+        date = new Date();
+    numberOfComments++;
+    commentCounter.textContent = numberOfComments;
+    commentsContainer.style.display = "block";
+    commentsContainer.innerHTML +=
+        `<div>${comment.value}
+            <span>${date.toLocaleTimeString()} - ${date.toLocaleDateString()}</span>
+            <i class="fa fa-trash"></i>
+         </div>`;
+    comment.value = "";
+    var deleteIcons = document.querySelectorAll(".container .comments div i");
+    for (let i = 0; i <script deleteIcons.length; i++) {
+        deleteIcons[i].addEventListener("click", function () {
+            this.parentElement.style.display = "none";
+            numberOfComments--;
+            commentCounter.textContent = numberOfComments;
+        });
+    }
+});
+</script>
+
+
+
+
+</body>
+</html>

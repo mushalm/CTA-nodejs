@@ -1,0 +1,124 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="/assets/createclass2.css">
+ <link rel="stylesheet" type="text/css" href="/assets/teachersidebar.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Create Class</title>
+</head>
+<body>
+  <div class="header">
+
+   <img src="/img/logowhite.png" class="logo" height="60px" width="80px">
+
+</div>
+    <input type="checkbox" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner top"></div>
+        <div class="spinner middle"></div>
+        <div class="spinner bottom"></div>
+    </label>
+    <div id="sidebarMenu">
+        <ul class="menu">
+<a href="/teachercreateclass"> <li><i class="fa fa-plus-square fa-2x"></i>&nbsp; <span style="font-size:18px;">Create class</span></a> </li>
+<a href="/showclass/{{activet.tusername}}"> <li><i class="fa fa-folder-open fa-2x"></i>&nbsp;  <span style="font-size:18px;">All classes</span></a></li>
+<a href="/logout"> <li><i class="fa fa-home fa-2x"></i>&nbsp;  <span style="font-size:18px;">Logout</span></a> </li>
+     
+    </ul>
+    </div>
+  <div class="form-style-5">
+<form action="/showclass"method="POST">
+<fieldset>
+<legend><span class="number">1</span>Create Class</legend>
+<input type="text" name="classname"required="required" placeholder=" Classname *">
+<input type="text" name="course"required="required" placeholder="Course *">
+ <input type="text"name="section" required="required"placeholder="Section *">
+  {{#each activet}}
+  <input type="text"name="teach" required="required" value="{{this.tusername}}">
+   {{/each}}
+ <input type="text" name="code"disabled id="code" placeholder="code *">
+
+    
+</fieldset>
+ 
+<input type="submit"id="submit"onclick="myFunction()" value="Create Class" />
+<script>
+  
+ function myFunction() {
+  
+ alert("Class Created Succesfully!");
+
+
+}
+
+</script>
+
+</form>
+</div>
+    {{!-- <section>
+  
+        <div class="box">
+          
+          <div class="square" style="--i:0;"></div>
+          <div class="square" style="--i:1;"></div>
+          <div class="square" style="--i:2;"></div>
+          <div class="square" style="--i:3;"></div>
+          <div class="square" style="--i:4;"></div>
+          <div class="square" style="--i:5;"></div>
+          
+         <div class="container"> 
+          <div class="form"> 
+            <h2>Create Class</h2>
+            <form action="/createclass"method="POST">
+              <div class="inputBx">
+                <input type="text" name="classname"required="required">
+                <span>Classname</span>
+               
+              </div>
+              <div class="inputBx">
+                  <input type="text"name="course" required="required">
+                  <span>Course</span>
+                 
+                </div>
+              <div class="inputBx">
+                  <input type="text"name="section" required="required">
+                  <span>Section</span>  
+                </div>
+           
+                <div class="inputBx">
+                  <input type="text"name="code" aria-disabled="true">
+                  <span>Code</span>  
+                </div>
+              
+                <button class="button"type="submit" >create Class </button>
+             
+            </form>
+           
+          </div>
+        </div>
+          
+        </div>
+      </section>
+       --}}
+      <!---JS CDN Link---->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <!--Custom JS File-->
+      <script>
+      function show_hide_password(target){
+          var input = document.getElementById('password-input');
+          if (input.getAttribute('type') == 'password') {
+              target.classList.add('view');
+              input.setAttribute('type', 'text');
+          } else {
+              target.classList.remove('view');
+              input.setAttribute('type', 'password');
+          }
+          return false;
+      }
+      
+      </script>
+</body>
+</html>
