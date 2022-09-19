@@ -4,7 +4,7 @@ var connection=require('./database');
 const hbs = require('hbs');
 const path = require('path');
 const multer = require('multer');
-
+const port= process.env.PORT || 4000;
 const bodyParser=require("body-parser");
 const res = require("express/lib/response");
 const { urlencoded } = require("body-parser");
@@ -314,5 +314,5 @@ app.get("/createclass",function(req,res){
 })
 
 
-app.listen(4000);
+app.listen(port);
 module.exports = app;
